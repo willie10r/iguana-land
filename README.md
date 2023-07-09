@@ -40,8 +40,10 @@ Here's why:
 
 - [x] Finsish frontend design and styling
 - [ ] Add finishing touches to the styles
-- [ ] Add multiple pages
-- [ ] Add working backend
+- [x] Add multiple pages
+- [ ] Add database to serve the meal info to the user
+- [ ] Add a google auth
+- [ ] finish the mobile style's
 
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
@@ -52,7 +54,7 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 <!-- CONTACT -->
 ## Contact
 
-Your Name - Willie morris, Bitcooker
+Your Name - Willie morris
 
 Project Link:
 
@@ -64,7 +66,7 @@ Project Link:
 ## Acknowledgments
 
 * Tailwind docs
-* next13 docs
-* Bitcooker for helping me with questions
+* Next13 docs
+* Firebase docs
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
