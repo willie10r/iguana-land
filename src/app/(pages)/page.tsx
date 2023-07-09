@@ -1,4 +1,7 @@
 import Image from 'next/image'
+
+
+//imported image's
 import iggy from '../../../public/images/iggy.jpg'
 import redIggy from '../../../public/images/red-iggy.webp'
 import iconIggy from '../../../public/images/icon-iguana.png'
