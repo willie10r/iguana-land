@@ -7,15 +7,15 @@ export default function PetCare() {
         <>
             <section>
                 <Image
-                    className='mx-auto rounded-full'
+                    className='mx-auto rounded-full pt-28'
                     src={bathIggy}
                     alt='iggy in the bath'
                 />
-                <h1 className='text-center font-bold text-6xl mb-24'>Pet Care</h1>
+                <h1 className='text-center font-bold text-6xl mt-10 mb-24'>Pet Care</h1>
                 <ul className='text-center'>
-                    <li className=' bg-green-500 rounded-3xl mx-40 my-10'>
+                    <li className=' bg-green-500 rounded-3xl mx-4 xl:mx-40 my-10'>
                         <h3 className=' font-semibold text-3xl mb-10 pt-6'>Temperature and Humidity</h3>
-                        <p className=' mx-28 pb-10 text-2xl'>
+                        <p className=' xl:mx-28 px-3 pb-10 text-2xl'>
                             Iguanas are cold blooded reptials meaning that they rely on their environment to regulate their
                             temperature. Iguanas require a high ambient temperature in their enclosure&apos;s basking spot 95°F to
                             100°F, the rest of the cage 75°F to 85°F. Iguanas also need high humidity in their cage, which
@@ -25,9 +25,9 @@ export default function PetCare() {
                             day to increase the humidity and to promote skin health.
                         </p>
                     </li>
-                    <li className=' bg-green-500 rounded-3xl mx-40 my-10'>
+                    <li className=' bg-green-500 rounded-3xl mx-4 xl:mx-40 my-10'>
                         <h3 className=' font-semibold text-3xl mb-10 pt-6'>lighting</h3>
-                        <p className=' mx-28 pb-10 text-2xl'>
+                        <p className=' xl:mx-28 px-3 pb-10 text-2xl'>
                             We recommend that your iguana be kept on a 12-hour
                             light/dark cycle so that it receives ultraviolet UVB bulb&apos;s at least 12 hours a day. UVB light should not be
                             farther than 12 inches away from the iguana depending on the light and fixture you get.
@@ -35,9 +35,9 @@ export default function PetCare() {
                             You should use a ceramic heat emitter they produce no visable light and give off good heat for the night time.
                         </p>
                     </li>
-                    <li className=' bg-green-500 rounded-3xl mx-40 my-10'>
+                    <li className=' bg-green-500 rounded-3xl mx-4 xl:mx-40 my-10'>
                         <h3 className=' font-semibold text-3xl mb-10 pt-6'>food and diet</h3>
-                        <p className=' mx-28 pb-10 text-2xl'>
+                        <p className=' xl:mx-28 px-3 pb-10 text-2xl'>
                             Iguanas are herbivores that should be provided daily with a variety of leafy green vegetables high in
                             calcium, such as kale, turnip greens, collards, chard, dandelions, parsley, and spinach, as well as a
                             very small amount of fruits such as bananas, melons, apples, and strawberries. We would not
@@ -51,9 +51,9 @@ export default function PetCare() {
                             ZooMed called Reptivite. ZooMed also produces some UVB lights.
                         </p>
                     </li>
-                    <li className=' bg-green-500 rounded-3xl mx-40 my-10'>
+                    <li className=' bg-green-500 rounded-3xl mx-4 xl:mx-40 my-10'>
                         <h3 className=' font-semibold text-3xl mb-10 pt-6'>Common Medical Conditions</h3>
-                        <p className=' mx-28 pb-10 text-2xl'>
+                        <p className=' xl:mx-28 px-3 pb-10 text-2xl'>
                             Kidney disease. Many iguanas develop and die from kidney disease as they get older. The
                             best ways to keep your iguana&apos;s kidneys healthy is to provide your pet with proper humidity,
                             plenty of access to fresh water (Iguanas are avid swimmers in the wild; providing your
@@ -63,9 +63,9 @@ export default function PetCare() {
                             catch kidney disease before it has progressed.
                         </p>
                     </li>
-                    <li className=' bg-green-500 rounded-3xl mx-40 my-10'>
+                    <li className=' bg-green-500 rounded-3xl mx-4 xl:mx-40 my-10'>
                         <h3 className=' font-semibold text-3xl mb-10 pt-6'>Housing</h3>
-                        <p className=' mx-28 pb-10 text-2xl'>
+                        <p className=' xl:mx-28 px-3 pb-10 text-2xl'>
                             Iguanas are very sensitive to changes in their environment, so it is important that you provide your
                             iguana with a very controlled stable environment. Most iguanas require large cages that have plenty
                             of room for climbing and exploring.

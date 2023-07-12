@@ -6,14 +6,14 @@ export default function MealPlan() {
     return (
         <>
             <Image
-                className='mx-auto mb-32'
+                className='mx-auto mb-32 pt-20'
                 src={iggy}
                 alt='iguana eating'
             />
-            <h1 className='text-center mb-14 font-extrabold text-7xl'>
+            <h1 className='text-center px-3 mb-14 font-extrabold text-7xl'>
                 Meal Plan&apos;s
             </h1>
-            <p className='text-center mb-48 text-2xl'>
+            <p className='text-center px-4 mb-48 text-2xl'>
                 Here you&apos;ll get a weekly meal plan for your lizard,
                 so you don&apos;t have to feed the same thing over and over each week.
             </p>
@@ -24,8 +24,8 @@ export default function MealPlan() {
             <section>
                 <h2 className='text-center mb-32 font-bold text-3xl'>Weekly Meal</h2>
                 <div className='text-center'>
-                    <ul className='grid grid-cols-2 gap-6 mb-24'>
-                        <li className='bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
+                    <ul className=' flex flex-col xl:grid xl:grid-cols-2 xl:gap-6 mb-24'>
+                        <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
                             <Image className=' mb-6'
                                 src=""
                                 alt="pic of food"
@@ -34,7 +34,7 @@ export default function MealPlan() {
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
                             <p>info on food</p>
                         </li>
-                        <li className='bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
+                        <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
                             <Image className=' mb-6'
                                 src=""
                                 alt="pic of food"
@@ -43,7 +43,7 @@ export default function MealPlan() {
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
                             <p>info on food</p>
                         </li>
-                        <li className='bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
+                        <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
                             <Image className=' mb-6'
                                 src=""
                                 alt="pic of food"
@@ -52,7 +52,7 @@ export default function MealPlan() {
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
                             <p>info on food</p>
                         </li>
-                        <li className='bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
+                        <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
                             <Image className=' mb-6'
                                 src=""
                                 alt="pic of food"
@@ -62,7 +62,7 @@ export default function MealPlan() {
                             <p>info on food</p>
                         </li>
                     </ul>
-                    <p className='text-center mb-12 text-2xl'>If you don&apos;t like what you see or the items are not in your location here&apos;s a resuffle button.</p>
+                    <p className='text-center px-4 mb-12 text-2xl'>If you don&apos;t like what you see or the items are not in your location here&apos;s a resuffle button.</p>
                     <button className='text-center w-40 bg-green-500 inline-block border rounded-lg py-2 px-4 text-black hover:text-white font-semibold mb-60'>resuffle</button>
                 </div>
             </section>
