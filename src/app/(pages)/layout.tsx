@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=' p-0 m-0'>
+      <body className=' p-0 m-0 max-w-[1440px] mx-auto'>
         <Nav />
         {children}
         <Footer />
