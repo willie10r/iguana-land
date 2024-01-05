@@ -5,6 +5,8 @@
 
 
 <!-- ABOUT THE PROJECT -->
+
+for me i removed this ""start": "next start"," to see if i coule get the db to start working
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
@@ -39,7 +41,7 @@ Here's why:
 ## Roadmap
 
 - [x] Finsish frontend design and styling
-- [ ] Add finishing touches to the styles
+- [x] Add finishing touches to the styles
 - [x] Add multiple pages
 - [ ] Add database to serve the meal info to the user
 - [ ] Add a google auth
@@ -54,7 +56,7 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 <!-- CONTACT -->
 ## Contact
 
-Your Name - Willie morris
+Willie morris
 
 Project Link:
 

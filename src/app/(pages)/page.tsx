@@ -1,5 +1,5 @@
 import Image from 'next/image'
-
+//trying to connect to the server
 
 //imported image's
 import iggy from '../../../public/images/iggy.jpg'
