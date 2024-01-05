@@ -1,8 +1,39 @@
+'use client'
+
 import React from 'react'
 import Image from 'next/image'
 import iggy from '../../../../public/images/iggy-eating.jpg'
+//trying to connect to the server
+import { useEffect, useState } from 'react';
+import supabase from '../../supabase';
 
 export default function MealPlan() {
+    const [data, setData] = useState([]);
+
+    
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('food')
+          .select('*');
+        
+        if (error) {
+          throw error;
+        }
+
+        setData(data);
+      } catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+  console.log('useE is runing');
+  console.log(data);
+
     return (
         <>
             <Image

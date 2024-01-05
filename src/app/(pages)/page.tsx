@@ -1,5 +1,7 @@
+
+
 import Image from 'next/image'
-//trying to connect to the server
+
 
 //imported image's
 import iggy from '../../../public/images/iggy.jpg'
@@ -10,6 +12,10 @@ import grooming from '../../../public/images/grooming.png'
 import care from '../../../public/images/care.png'
 import training from '../../../public/images/training.png'
 export default function Home() {
+
+
+
+
   return (
     < >
       <section className='flex flex-col xl:flex-row mb-48'>
