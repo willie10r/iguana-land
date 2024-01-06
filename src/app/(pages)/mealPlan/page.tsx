@@ -8,7 +8,8 @@ import { useEffect, useState } from 'react';
 import supabase from '../../supabase';
 
 export default function MealPlan() {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<{ id: number; name: string; staple: boolean }[]>([]);
+
 
     
   

@@ -69,6 +69,6 @@ Project Link:
 
 * Tailwind docs
 * Next13 docs
-* Firebase docs
+* Supabase docs
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
