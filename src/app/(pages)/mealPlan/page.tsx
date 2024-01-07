@@ -10,69 +10,71 @@ import { useEffect, useState } from 'react';
 import supabase from '../../supabase';
 
 export default function MealPlan() {
-    const [foodData, setFoodData] = useState<{ id: number; name: string; staple: boolean; img_id: string }[]>([]);
-    const [treatData, setTreatData] = useState<{ id: number; name: string; staple: boolean; img_id: string }[]>([]);
+    let [foodData, setFoodData] = useState<{ id: number; name: string; staple: boolean; img_id: string }[]>([]);
+    let [treatData, setTreatData] = useState<{ id: number; name: string; staple: boolean; img_id: string }[]>([]);
     useEffect(() => {
-        const fetchData = async () => {
-        try {
-            const { data: foodData, error: foodError } = await supabase
-            .from('food')
-            .select('*');
-            
-            if (foodError) {
-            throw foodError;
-            }
-            const { data: treatData, error: treatError } = await supabase
-            .from('treats')
-            .select('*');
-            
-            if (treatError) {
-            throw treatError;
-            }
+        let fetchData = async () => {
+            try {
+                const { data: foodData, error: foodError } = await supabase
+                    .from('food')
+                    .select('*');
 
-            setFoodData(foodData);
-            setTreatData(treatData);
-        } catch (error) {
-            console.error('Error fetching data:')//, error.message); // cant get this error to go away in ts.
-        }
+                if (foodError) {
+                    throw foodError;
+                }
+                const { data: treatData, error: treatError } = await supabase
+                    .from('treats')
+                    .select('*');
+
+                if (treatError) {
+                    throw treatError;
+                }
+
+                setFoodData(foodData);
+                setTreatData(treatData);
+            } catch (error) {
+                console.error('Error fetching data:')// , error.message);
+            }
         };
 
         fetchData();
     }, []);
     // section for the random 4 part menu
-    let randomFood =foodData[0];
+    let randomFood = foodData[1];
 
     //errorhandling for the returned data
     if (!randomFood) {
         console.error('Error: randomFood is undefined');
         // Handle the error or return from the function
         return;
-        }
-    const menu = Array.from({length:3}, () => getRandomFood());
-    const treatMenu =Array.from({length:1}, () => getRandomTreat())
-        
-    const [foodNameOne, foodNameTwo, foodNameThree] = menu;
-    const [treatName] = treatMenu;
-    
-    function randomFoodNumber():number {
+    }
+    let menu = Array.from({ length: 3 }, () => getRandomFood());
+    let treatMenu = Array.from({ length: 1 }, () => getRandomTreat())
+
+    let [foodNameOne, foodNameTwo, foodNameThree] = menu;
+    let [treatName] = treatMenu;
+
+    function randomFoodNumber(): number {
         return Math.floor(Math.random() * foodData.length);
     };
-    function randomTreatNumber():number {
+    function randomTreatNumber(): number {
         return Math.floor(Math.random() * treatData.length);
     };
 
+
+
     function getRandomFood(): { id: number; name: string; staple: boolean; img_id: string } {
-        return  foodData[randomFoodNumber()];
+        return foodData[randomFoodNumber()];
     }
 
     function getRandomTreat(): { id: number; name: string; staple: boolean; img_id: string } {
-        return  treatData[randomTreatNumber()];
+        return treatData[randomTreatNumber()];
     }
 
     //This section will be the resuffle part
-  function reshuffle() {
-    console.log('worked');
-  }
+    function reshuffle() {
+        console.log('worked');
+    }
 
 
     return (
@@ -104,45 +106,45 @@ export default function MealPlan() {
                                 width={100}
                                 height={50}
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodNameOne.name}`}</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{`${foodNameOne.name}`}</h3>
                             <p className=' mb-2 font-semibold text-lg'>Is this food a staple? </p>
-                            <p className=' mb-5 font-semibold text-lg'> { `${foodNameOne.staple}`}</p>
+                            <p className=' mb-5 font-semibold text-lg'> {`${foodNameOne.staple}`}</p>
                             <p>info on food </p>
                         </li>
                         <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
                             <Image className='mx-auto mb-6'
-                                    src={`${foodNameTwo.img_id}`}
-                                    alt="pic of food"
-                                    width={100}
-                                    height={50}
+                                src={`${foodNameTwo.img_id}`}
+                                alt="pic of food"
+                                width={100}
+                                height={50}
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodNameTwo.name}`}</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{`${foodNameTwo.name}`}</h3>
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
-                            <p className=' mb-5 font-semibold text-lg'> { `${foodNameTwo.staple}`}</p>
+                            <p className=' mb-5 font-semibold text-lg'> {`${foodNameTwo.staple}`}</p>
                             <p>info on food</p>
                         </li>
                         <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
                             <Image className='mx-auto mb-6'
-                                   src={`${foodNameThree.img_id}`}
-                                   alt="pic of food"
-                                   width={100}
-                                   height={50}
+                                src={`${foodNameThree.img_id}`}
+                                alt="pic of food"
+                                width={100}
+                                height={50}
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodNameThree.name}`}</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{`${foodNameThree.name}`}</h3>
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
-                            <p className=' mb-5 font-semibold text-lg'> { `${foodNameThree.staple}`}</p>
+                            <p className=' mb-5 font-semibold text-lg'> {`${foodNameThree.staple}`}</p>
                             <p>info on food</p>
                         </li>
                         <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
                             <Image className='mx-auto mb-6'
-                                    src={`${ treatName.img_id}`}
-                                    alt="pic of food"
-                                    width={100}
-                                    height={50}
+                                src={`${treatName.img_id}`}
+                                alt="pic of food"
+                                width={100}
+                                height={50}
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${treatName.name}`}</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{`${treatName.name}`}</h3>
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
-                            <p className=' mb-5 font-semibold text-lg'> { `${treatName.staple}`}</p>
+                            <p className=' mb-5 font-semibold text-lg'> {`${treatName.staple}`}</p>
                             <p>info on food</p>
                         </li>
                     </ul>
