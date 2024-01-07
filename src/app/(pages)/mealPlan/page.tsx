@@ -3,24 +3,35 @@
 import React from 'react'
 import Image from 'next/image'
 import iggy from '../../../../public/images/iggy-eating.jpg'
+
+
 //trying to connect to the server
 import { useEffect, useState } from 'react';
 import supabase from '../../supabase';
 
 export default function MealPlan() {
-  const [data, setData] = useState<{ id: number; name: string; staple: boolean; img_id: string }[]>([]);
+    const [foodData, setFoodData] = useState<{ id: number; name: string; staple: boolean; img_id: string }[]>([]);
+    const [treatData, setTreatData] = useState<{ id: number; name: string; staple: boolean; img_id: string }[]>([]);
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const { data, error } = await supabase
+            const { data: foodData, error: foodError } = await supabase
             .from('food')
             .select('*');
             
-            if (error) {
-            throw error;
+            if (foodError) {
+            throw foodError;
+            }
+            const { data: treatData, error: treatError } = await supabase
+            .from('treats')
+            .select('*');
+            
+            if (treatError) {
+            throw treatError;
             }
 
-            setData(data);
+            setFoodData(foodData);
+            setTreatData(treatData);
         } catch (error) {
             console.error('Error fetching data:')//, error.message); // cant get this error to go away in ts.
         }
@@ -28,8 +39,10 @@ export default function MealPlan() {
 
         fetchData();
     }, []);
-// section for the random 4 part menu
-    let randomFood =data[0];
+    // section for the random 4 part menu
+    let randomFood =foodData[0];
+   
+
     //errorhandling for the returned data
     if (!randomFood) {
         console.error('Error: randomFood is undefined');
@@ -37,46 +50,30 @@ export default function MealPlan() {
         return;
         }
 
-//I would like to refactor this part of the code to run as a loop so I can get rid of the redundent parts
-    let foodNameOne = randomFood;
-    let foodNameTwo = randomFood;
-    let foodNameThree = randomFood;
-    let foodNameFour = randomFood;
+    //I would like to refactor this part of the code to run as a loop so I can get rid of the redundent parts
+    const menu = Array.from({length:3}, () => getRandomFood());
+    const treatMenu =Array.from({length:1}, () => getRandomTreat())
+        
+    const [foodNameOne, foodNameTwo, foodNameThree] = menu;
+    const [treatName] = treatMenu;
     
     function randomNumber():number {
-        return Math.floor(Math.random() * data.length);
+        return Math.floor(Math.random() * foodData.length);
     };
 
-    function MenuOne()  {
-        let foodSet = data[randomNumber()]; 
-        foodNameOne = foodSet;
-      
-        
-    };
-    function MenuTwo()  {
-        let foodSet = data[randomNumber()]; 
-        foodNameTwo = foodSet;
-        
-    };
-    function MenuThree()  {
-        let foodSet = data[randomNumber()]; 
-        foodNameThree = foodSet;
-        
-    };
-    function MenuFour()  {
-        let foodSet = data[randomNumber()]; 
-        foodNameFour = foodSet;
-        
-    };
-    MenuOne();
-    MenuTwo();
-    MenuThree();
-    MenuFour();
+    function getRandomFood(): { id: number; name: string; staple: boolean; img_id: string } {
+        return  foodData[randomNumber()];
+    }
+
+    function getRandomTreat(): { id: number; name: string; staple: boolean; img_id: string } {
+        return  treatData[randomNumber()];
+    }
 
     //This section will be the resuffle part
+  
 
 
-// for loging and testing
+    // for loging and testing
 
 
     return (
@@ -139,14 +136,14 @@ export default function MealPlan() {
                         </li>
                         <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
                             <Image className='mx-auto mb-6'
-                                    src={`${foodNameFour.img_id}`}
+                                    src={`${ treatName.img_id}`}
                                     alt="pic of food"
                                     width={100}
                                     height={50}
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodNameFour.name}`}</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${treatName.name}`}</h3>
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
-                            <p className=' mb-5 font-semibold text-lg'> { `${foodNameFour.staple}`}</p>
+                            <p className=' mb-5 font-semibold text-lg'> { `${treatName.staple}`}</p>
                             <p>info on food</p>
                         </li>
                     </ul>
