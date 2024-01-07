@@ -26,14 +26,34 @@ export default function MealPlan() {
 
         setData(data);
       } catch (error) {
-        console.error('Error fetching data:', error.message);
+        console.error('Error fetching data:')//, error.message); // cant get this error to go away in ts.
       }
     };
 
     fetchData();
   }, []);
-  console.log('useE is runing');
-  console.log(data);
+        let randomFood = data[randonNumber()] ; 
+        if (!randomFood) {
+            console.error('Error: randomFood is undefined');
+            // Handle the error or return from the function
+            return;
+          }
+        let foodName = randomFood.name;
+        let staple = randomFood.staple; 
+        
+        function randonNumber():number {
+            return Math.floor(Math.random() * data.length);
+        };
+
+        function dailyMenu():string  {
+
+
+            return 'yes';
+        };
+        
+    
+  console.log(randomFood);
+
 
     return (
         <>
@@ -62,16 +82,17 @@ export default function MealPlan() {
                                 src=""
                                 alt="pic of food"
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>food name</h3>
-                            <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
-                            <p>info on food</p>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodName}`}</h3>
+                            <p className=' mb-2 font-semibold text-lg'>Is this food a staple? </p>
+                            <p className=' mb-5 font-semibold text-lg'> {`${staple}`}</p>
+                            <p>info on food </p>
                         </li>
                         <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
                             <Image className=' mb-6'
                                 src=""
                                 alt="pic of food"
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>food name</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodName}`}</h3>
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
                             <p>info on food</p>
                         </li>
