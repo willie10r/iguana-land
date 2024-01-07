@@ -41,7 +41,6 @@ export default function MealPlan() {
     }, []);
     // section for the random 4 part menu
     let randomFood =foodData[0];
-   
 
     //errorhandling for the returned data
     if (!randomFood) {
@@ -49,31 +48,31 @@ export default function MealPlan() {
         // Handle the error or return from the function
         return;
         }
-
-    //I would like to refactor this part of the code to run as a loop so I can get rid of the redundent parts
     const menu = Array.from({length:3}, () => getRandomFood());
     const treatMenu =Array.from({length:1}, () => getRandomTreat())
         
     const [foodNameOne, foodNameTwo, foodNameThree] = menu;
     const [treatName] = treatMenu;
     
-    function randomNumber():number {
+    function randomFoodNumber():number {
         return Math.floor(Math.random() * foodData.length);
+    };
+    function randomTreatNumber():number {
+        return Math.floor(Math.random() * treatData.length);
     };
 
     function getRandomFood(): { id: number; name: string; staple: boolean; img_id: string } {
-        return  foodData[randomNumber()];
+        return  foodData[randomFoodNumber()];
     }
 
     function getRandomTreat(): { id: number; name: string; staple: boolean; img_id: string } {
-        return  treatData[randomNumber()];
+        return  treatData[randomTreatNumber()];
     }
 
     //This section will be the resuffle part
-  
-
-
-    // for loging and testing
+  function reshuffle() {
+    console.log('worked');
+  }
 
 
     return (
@@ -148,7 +147,7 @@ export default function MealPlan() {
                         </li>
                     </ul>
                     <p className='text-center px-4 mb-12 text-2xl'>If you don&apos;t like what you see or the items are not in your location here&apos;s a resuffle button.</p>
-                    <button className='text-center w-40 bg-green-500 inline-block border rounded-lg py-2 px-4 text-black hover:text-white font-semibold mb-60'>resuffle</button>
+                    <button onClick={reshuffle} className='text-center w-40 bg-green-500 inline-block border rounded-lg py-2 px-4 text-black hover:text-white font-semibold mb-60'>resuffle</button>
                 </div>
             </section>
         </>
