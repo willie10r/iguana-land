@@ -8,51 +8,89 @@ import { useEffect, useState } from 'react';
 import supabase from '../../supabase';
 
 export default function MealPlan() {
-    const [data, setData] = useState<{ id: number; name: string; staple: boolean }[]>([]);
+  const [data, setData] = useState<{ id: number; name: string; staple: boolean }[]>([]);
+    useEffect(() => {
+        const fetchData = async () => {
+        try {
+            const { data, error } = await supabase
+            .from('food')
+            .select('*');
+            
+            if (error) {
+            throw error;
+            }
 
-
-    
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('food')
-          .select('*');
-        
-        if (error) {
-          throw error;
+            setData(data);
+        } catch (error) {
+            console.error('Error fetching data:')//, error.message); // cant get this error to go away in ts.
         }
+        };
 
-        setData(data);
-      } catch (error) {
-        console.error('Error fetching data:')//, error.message); // cant get this error to go away in ts.
-      }
+        fetchData();
+    }, []);
+// section for the random 4 part menu
+    let randomFood =data[randomNumber()];
+    //errorhandling for the returned data
+    if (!randomFood) {
+        console.error('Error: randomFood is undefined');
+        // Handle the error or return from the function
+        return;
+        }
+    let foodNameOne = randomFood;
+    let stapleOne = randomFood; 
+    let foodNameTwo = randomFood;
+    let stapleTwo = randomFood;
+    let foodNameThree = randomFood;
+    let stapleThree = randomFood;
+    let foodNameFour = randomFood;
+    let stapleFour = randomFood;
+    
+    function randomNumber():number {
+        return Math.floor(Math.random() * data.length);
     };
 
-    fetchData();
-  }, []);
-        let randomFood = data[randonNumber()] ; 
-        if (!randomFood) {
-            console.error('Error: randomFood is undefined');
-            // Handle the error or return from the function
-            return;
-          }
-        let foodName = randomFood.name;
-        let staple = randomFood.staple; 
+    function MenuOne()  {
+        let foodSet = data[randomNumber()]; 
+        foodNameOne = foodSet;
+        stapleOne = foodSet;
+
+
+        return console.log('working');
         
-        function randonNumber():number {
-            return Math.floor(Math.random() * data.length);
-        };
+    };
+    function MenuTwo()  {
+        let foodSet = data[randomNumber()]; 
+        foodNameTwo = foodSet;
+        stapleTwo = foodSet;
 
-        function dailyMenu():string  {
 
-
-            return 'yes';
-        };
+        return console.log('working');
         
-    
-  console.log(randomFood);
+    };
+    function MenuThree()  {
+        let foodSet = data[randomNumber()]; 
+        foodNameThree = foodSet;
+        stapleThree = foodSet;
+
+
+        return console.log('working');
+        
+    };
+    function MenuFour()  {
+        let foodSet = data[randomNumber()]; 
+        foodNameFour = foodSet;
+        stapleFour = foodSet;
+
+
+        return console.log('working');
+        
+    };
+    MenuOne();
+    MenuTwo();
+    MenuThree();
+    MenuFour();
+// for loging and testing
+    console.log(randomFood);
 
 
     return (
@@ -82,9 +120,9 @@ export default function MealPlan() {
                                 src=""
                                 alt="pic of food"
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodName}`}</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodNameOne.name}`}</h3>
                             <p className=' mb-2 font-semibold text-lg'>Is this food a staple? </p>
-                            <p className=' mb-5 font-semibold text-lg'> {`${staple}`}</p>
+                            <p className=' mb-5 font-semibold text-lg'> { `${stapleOne.staple}`}</p>
                             <p>info on food </p>
                         </li>
                         <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
@@ -92,8 +130,9 @@ export default function MealPlan() {
                                 src=""
                                 alt="pic of food"
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodName}`}</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodNameTwo.name}`}</h3>
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
+                            <p className=' mb-5 font-semibold text-lg'> { `${stapleTwo.staple}`}</p>
                             <p>info on food</p>
                         </li>
                         <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
@@ -101,8 +140,9 @@ export default function MealPlan() {
                                 src=""
                                 alt="pic of food"
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>food name</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodNameThree.name}`}</h3>
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
+                            <p className=' mb-5 font-semibold text-lg'> { `${stapleThree.staple}`}</p>
                             <p>info on food</p>
                         </li>
                         <li className='mb-5 bg-green-500 w-60 h-72 rounded-3xl mx-auto'>
@@ -110,8 +150,9 @@ export default function MealPlan() {
                                 src=""
                                 alt="pic of food"
                             />
-                            <h3 className=' mb-5 font-semibold text-2xl'>food name</h3>
+                            <h3 className=' mb-5 font-semibold text-2xl'>{ `${foodNameFour.name}`}</h3>
                             <p className=' mb-5 font-semibold text-lg'>staple or not staple</p>
+                            <p className=' mb-5 font-semibold text-lg'> { `${stapleFour.staple}`}</p>
                             <p>info on food</p>
                         </li>
                     </ul>
