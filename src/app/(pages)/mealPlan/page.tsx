@@ -7,49 +7,51 @@ import iggy from '../../../../public/images/iggy-eating.jpg'
 
 //trying to connect to the server
 import { useEffect, useState } from 'react';
-import supabase from '../../supabase';
+import supabase from '../../thebase';
 
 export default function MealPlan() {
     let [foodData, setFoodData] = useState<{ id: number; name: string; staple: boolean; img_id: string }[]>([]);
     let [treatData, setTreatData] = useState<{ id: number; name: string; staple: boolean; img_id: string }[]>([]);
-    useEffect(() => {
-        let fetchData = async () => {
-            try {
-                const { data: foodData, error: foodError } = await supabase
-                    .from('food')
-                    .select('*');
 
-                if (foodError) {
-                    throw foodError;
-                }
-                const { data: treatData, error: treatError } = await supabase
-                    .from('treats')
-                    .select('*');
+    let fetchData = async () => {
+        try {
+            const { data: foodData, error: foodError } = await supabase
+                .from('food')
+                .select('*');
 
-                if (treatError) {
-                    throw treatError;
-                }
-
-                setFoodData(foodData);
-                setTreatData(treatData);
-            } catch (error) {
-                console.error('Error fetching data:')// , error.message);
+            if (foodError) {
+                throw foodError;
             }
-        };
+            const { data: treatData, error: treatError } = await supabase
+                .from('treats')
+                .select('*');
+
+            if (treatError) {
+                throw treatError;
+            }
+
+            setFoodData(foodData);
+            setTreatData(treatData);
+            console.log('load set');
+        } catch (error) {
+            console.error('Error fetching data:')// , error.message);
+        }
+    };
+    useEffect(() => {
+
 
         fetchData();
     }, []);
     // section for the random 4 part menu
-    let randomFood = foodData[1];
 
     //errorhandling for the returned data
-    if (!randomFood) {
+    if (!foodData[0]) {
         console.error('Error: randomFood is undefined');
         // Handle the error or return from the function
         return;
     }
     let menu = Array.from({ length: 3 }, () => getRandomFood());
-    let treatMenu = Array.from({ length: 1 }, () => getRandomTreat())
+    let treatMenu = Array.from({ length: 1 }, () => getRandomTreat());
 
     let [foodNameOne, foodNameTwo, foodNameThree] = menu;
     let [treatName] = treatMenu;
@@ -73,14 +75,9 @@ export default function MealPlan() {
 
     //This section will be the resuffle part
     function reshuffle() {
-        menu = Array.from({ length: 3 }, () => getRandomFood());
-        treatMenu = Array.from({ length: 1 }, () => getRandomTreat());
+        fetchData();
 
-        setFoodData(menu);
-        setTreatData(treatMenu);
-
-        console.log(menu);
-        console.log(treatMenu);
+        console.log('resuffle set');
     }
 
     return (
