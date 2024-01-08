@@ -73,9 +73,15 @@ export default function MealPlan() {
 
     //This section will be the resuffle part
     function reshuffle() {
-        console.log('worked');
-    }
+        menu = Array.from({ length: 3 }, () => getRandomFood());
+        treatMenu = Array.from({ length: 1 }, () => getRandomTreat());
 
+        setFoodData(menu);
+        setTreatData(treatMenu);
+
+        console.log(menu);
+        console.log(treatMenu);
+    }
 
     return (
         <>
