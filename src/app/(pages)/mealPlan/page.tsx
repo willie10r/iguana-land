@@ -125,12 +125,35 @@ export default function MealPlan() {
                 Here you&apos;ll get a weekly meal plan for your lizard,
                 so you don&apos;t have to feed the same thing over and over each week.
             </p>
+            <h1 className='text-center font-bold text-3xl mb-24'>Meal Plan guide</h1>
+            <section className='flex flex-col text-center xl:flex-row mb-16'>
+                <div className='mb-5 bg-green-500 w-64 h-96 rounded-3xl mx-auto'>
+                    <h2 className='xl:font-bold text-xl'>Main Greens</h2>
+                    <p>The main green should be about 70% to 80% of your iggy's daily diet.</p>
+                    <h2 className='xl:font-bold text-xl'>Secondary Greens</h2>
+                    <p>
+                        Secondary greens should make up a smaller portion because they are not as vietmin packed or are a little bit
+                        higher on calcium binding chemicals like oxalate's.
+                    </p>
+                </div>
+                <div className='mb-5 bg-green-500 w-64 h-96 rounded-3xl mx-auto'>
+                    <h2 className='xl:font-bold text-xl'>Toppers</h2>
+                    <p>
+                        Toppers give a little color and change from the greens you'll mainly be feeding you iguana. They should be sprinkled on top of your
+                        salad mix.
+                    </p>
+                    <h2 className='xl:font-bold text-xl'>Treats</h2>
+                    <p>Treats should be given sparingly maybe 1 or 2 times a week.</p>
+                </div>
+
+            </section>
+
             {/* 
             The following section is where the infomation will be fetched and served into the li elements.
              We will need to fetch a img, food name, a boolean if its a staple or not, and the food info.
             */}
             <section>
-                <h2 className='text-center mb-32 font-bold text-3xl'>Weekly Meal</h2>
+                <h2 className='text-center mb-24 font-bold text-3xl'>Weekly Meal</h2>
                 <div className='text-center'>
                     <ul className=' flex flex-col xl:grid xl:grid-cols-2 xl:gap-6 mb-12'>
                         <li className=' mb-5 bg-green-500 w-64 h-96 rounded-3xl mx-auto'>

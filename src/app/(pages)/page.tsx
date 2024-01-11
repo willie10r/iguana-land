@@ -1,6 +1,7 @@
 
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 //imported image's
@@ -26,7 +27,7 @@ export default function Home() {
             One of the best place&apos;s to start is making sure that all of the husbandry is on point.
             Iguana&apos;s love food so finding out what work&apos;s best for yours will make the taming process that much easy.
             Getting the temps and humidity correct will help also. The more at home they feel the sooner they will settle in.</p>
-          <button className='text-center w-40 bg-green-500 inline-block border rounded-lg py-2 px-4 text-black hover:text-white font-semibold'>EXPLORE MORE</button>
+          <Link href='/mealPlan' className='text-center w-40 bg-green-500 inline-block border rounded-lg py-2 px-4 text-black hover:text-white font-semibold'>EXPLORE MORE</Link>
         </div>
         <Image
           className=' mx-auto'
@@ -37,6 +38,7 @@ export default function Home() {
       <section className='flex justify-center my-20  mb-48'>
         <div>
           <h2 className='xl:font-bold text-3xl mb-10'>Services Category </h2>
+          <p>This section is under construction! </p>
           <ul className='flex flex-col xl:flex-row'>
             <li className='w-40 mx-auto mb-5  bg-green-500 inline-block border rounded-lg py-2 px-4 text-black hover:text-white font-semibold xl:mr-10 h-52'>
               <Image src={grooming} alt="" />
@@ -72,7 +74,7 @@ export default function Home() {
             dragon-like appearance during their youth. Iguanas can grow up to be about 6feet long and weigh over 15 pounds. Plus,
             they are challenging pets to keep — especially if you aren&apos;t an experienced reptile keeper.
           </p>
-          <button className='mb-10 text-center w-40 bg-green-500 inline-block border rounded-lg py-2 px-4 text-black hover:text-white font-semibold'>Explore More</button>
+          <Link href='/petCare' className='mb-10 text-center w-40 bg-green-500 inline-block border rounded-lg py-2 px-4 text-black hover:text-white font-semibold'>Explore More</Link>
         </div>
       </section>
 
