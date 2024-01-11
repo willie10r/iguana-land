@@ -17,9 +17,9 @@ export default function Home() {
 
 
   return (
-    <div className='relative max-xl:top-28 top-0'>
+    <div className='relative max-xl:top-44 top-0'>
       <section className='flex flex-col xl:flex-row mb-48'>
-        <div className='text-center xl:mx-40 mt-28'>
+        <div className='text-center xl:mx-40'>
           <h1 className=' px-3 xl:font-bold text-3xl mb-10'>Taking care of your lizard!</h1>
           <p className=' mb-10 px-3 text-2xl'>
             Human-lizard bonding is the relationship between lizards and humans. That take time to develop into somthing special.
