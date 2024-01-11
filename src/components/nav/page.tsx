@@ -2,12 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import { Linden_Hill } from 'next/font/google'
 import Image from 'next/image'
-import lizPic from '../../../public/images/download.png'
+import lizPic from '../../../public/images/Iguanaland.png'
 
 export default function Nav() {
     return (
-        <div className=' flex flex-col justify-between items-center mx-auto h-36 mb-48 xl:flex-row xl:mx-0'>
-            <Image className=' rounded-3xl  xl:m-2 xl:max-w-sm xl:max-h-20 xl:px-12'
+        <div className=' flex flex-col justify-between items-center mx-auto h-36 mb-36 xl:flex-row xl:mx-0'>
+            <Image className=' rounded-3xl  xl:m-2 xl:max-w-sm xl:max-h-20 xl:px-12 max-h-18'
                 alt='lizard picture'
                 src={lizPic}
             />

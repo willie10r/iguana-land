@@ -4,10 +4,10 @@ import bathIggy from '../../../../public/images/bathiggy.webp'
 
 export default function PetCare() {
     return (
-        <>
+        <div className='relative max-xl:top-44 top-0'>
             <section>
                 <Image
-                    className='mx-auto rounded-full pt-28'
+                    className='mx-auto rounded-full'
                     src={bathIggy}
                     alt='iggy in the bath'
                 />
@@ -74,6 +74,6 @@ export default function PetCare() {
                 </ul>
             </section>
 
-        </>
+        </div>
     )
 }

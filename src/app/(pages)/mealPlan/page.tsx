@@ -18,7 +18,7 @@ export default function MealPlan() {
     let fetchData = async () => {
         try {
             const { data: mainGreenData, error: mainGreenError } = await supabase
-                .from('maingreens')
+                .from('maingreens',)
                 .select('*');
 
             if (mainGreenError) {
@@ -112,16 +112,16 @@ export default function MealPlan() {
     }
 
     return (
-        <>
+        <div className='relative max-xl:top-44 top-0'>
             <Image
-                className='mx-auto mb-32 pt-20'
+                className='mx-auto mb-24'
                 src={iggy}
                 alt='iguana eating'
             />
             <h1 className='text-center px-3 mb-14 font-extrabold text-7xl'>
                 Meal Plan&apos;s
             </h1>
-            <p className='text-center px-4 mb-48 text-2xl'>
+            <p className='text-center px-4 mb-32 text-2xl'>
                 Here you&apos;ll get a weekly meal plan for your lizard,
                 so you don&apos;t have to feed the same thing over and over each week.
             </p>
@@ -132,7 +132,7 @@ export default function MealPlan() {
             <section>
                 <h2 className='text-center mb-32 font-bold text-3xl'>Weekly Meal</h2>
                 <div className='text-center'>
-                    <ul className=' flex flex-col xl:grid xl:grid-cols-2 xl:gap-6 mb-24'>
+                    <ul className=' flex flex-col xl:grid xl:grid-cols-2 xl:gap-6 mb-12'>
                         <li className=' mb-5 bg-green-500 w-64 h-96 rounded-3xl mx-auto'>
                             <h2 className=' mb-5 font-semibold text-3xl'>Main green</h2>
                             <Image className='  mx-auto  my-6 rounded-md'
@@ -190,6 +190,6 @@ export default function MealPlan() {
                     <button onClick={reshuffle} className='text-center w-40 bg-green-500 inline-block border rounded-lg py-2 px-4 text-black hover:text-white font-semibold mb-60'>resuffle</button>
                 </div>
             </section >
-        </>
+        </div>
     )
 }
